@@ -4,15 +4,13 @@ import fs from "fs";
 
 sqlite3.verbose();
 
-const dataDir = "/home/data";
+const DB_FOLDER = process.env.DB_FOLDER || "/home/edgeupdb";
 
-// creează folder dacă nu există
-if (!fs.existsSync(dataDir)) {
-  fs.mkdirSync(dataDir, { recursive: true });
+if (!fs.existsSync(DB_FOLDER)) {
+  fs.mkdirSync(DB_FOLDER, { recursive: true });
 }
 
-// calea finală a fișierului SQLite
-const dbPath = process.env.DB_PATH || path.join(dataDir, "app.db");
+const dbPath = path.join(DB_FOLDER, "app.db");
 
 export const db = new sqlite3.Database(dbPath);
 
