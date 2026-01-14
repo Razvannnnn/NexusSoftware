@@ -85,11 +85,11 @@ export const AuthTemplate: React.FC<AuthTemplateProps> = ({
     }
   };
 
-  const handleSignOut = async (): Promise<void> => {
-    setUser(null);
-    setToken(null);
-    navigate("/login", { replace: true });
-  };
+  // const handleSignOut = async (): Promise<void> => {
+  //   setUser(null);
+  //   setToken(null);
+  //   navigate("/login", { replace: true });
+  // };
 
   return (
     <div className={styles.authTemplate}>
