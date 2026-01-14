@@ -4,7 +4,7 @@ import fs from "fs";
 
 sqlite3.verbose();
 
-const DB_FOLDER = process.env.DB_FOLDER || "/home/edgeupdb";
+const DB_FOLDER = process.env.DB_FOLDER || "/home/edgeupdb_v2";
 
 if (!fs.existsSync(DB_FOLDER)) {
   fs.mkdirSync(DB_FOLDER, { recursive: true });
