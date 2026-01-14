@@ -6,6 +6,9 @@ import { API_URL } from "../../../config";
 export const RegisterPage: React.FC = () => {
   const navigate = useNavigate();
 
+  console.log("import.meta.env:", import.meta.env);
+  console.log("API_URL:", import.meta.env.VITE_API_URL);
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) return;
