@@ -62,7 +62,7 @@ async function main() {
   await migrate();
 
   // Rulează seed DOAR prima dată apoi comentează linia
-  await seed();
+  //await seed();
 
   httpServer.listen(PORT, "0.0.0.0", () => {
     console.log(`Backend running on port ${PORT}`);
