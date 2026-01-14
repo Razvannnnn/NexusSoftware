@@ -4,7 +4,7 @@ import fs from "fs";
 
 sqlite3.verbose();
 
-const dataDir = path.join(process.env.HOME || ".", "site/wwwroot/data");
+const dataDir = "/home/data";
 
 // creează folder dacă nu există
 if (!fs.existsSync(dataDir)) {
