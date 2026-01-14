@@ -23,7 +23,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://wonderful-pebble-0a61e6603.4.azurestaticapps.net",
     credentials: true,
   })
 );
@@ -51,9 +51,9 @@ app.use("/", chatRoutes);
 app.use("/", notificationRoutes);
 
 app.use((err, _req, res, _next) => {
-  res
-    .status(err.status || 500)
-    .json({ error: err.message || "Internal error" });
+  res.status(err.status || 500).json({
+    error: err.message || "Internal error",
+  });
 });
 
 const PORT = process.env.PORT || 3000;
@@ -61,12 +61,12 @@ const PORT = process.env.PORT || 3000;
 async function main() {
   await migrate();
 
-  // DB population - uncomment at first run
-  await seed();
+  // Rulează seed DOAR prima dată apoi comentează linia
+  // await seed();
 
-  httpServer.listen(PORT, () =>
-    console.log(`Listening on http://localhost:${PORT}`)
-  );
+  httpServer.listen(PORT, "0.0.0.0", () => {
+    console.log(`Backend running on port ${PORT}`);
+  });
 
   process.on("SIGINT", () => db.close(() => process.exit(0)));
 }
