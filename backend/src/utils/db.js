@@ -3,7 +3,16 @@ import path from "path";
 
 sqlite3.verbose();
 
-const dbPath = process.env.DB_PATH || path.resolve("./data/app.db");
+const dataDir = path.join(process.env.HOME || ".", "site/wwwroot/data");
+
+// creează folder dacă nu există
+if (!fs.existsSync(dataDir)) {
+  fs.mkdirSync(dataDir, { recursive: true });
+}
+
+// calea finală a fișierului SQLite
+const dbPath = process.env.DB_PATH || path.join(dataDir, "app.db");
+
 export const db = new sqlite3.Database(dbPath);
 
 export const run = (sql, params = []) =>
