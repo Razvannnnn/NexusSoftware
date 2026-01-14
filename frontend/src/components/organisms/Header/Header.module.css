@@ -1,8 +1,7 @@
 .headerContainer {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  display: flex;
   align-items: center;
-  justify-items: center;
+  justify-content: space-between;
   width: 100%;
   padding: 1rem 2rem;
 
