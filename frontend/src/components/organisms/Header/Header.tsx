@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import styles from "./Header.module.css";
 import { Logo } from "../../atoms/Logo/Logo";
 import { Avatar } from "../../atoms/Avatar/Avatar";
-import { NavItem } from "../../molecules/NavItem/NavItem";
 import { SearchBar } from "../../molecules/SearchBar/SearchBar";
 import { useCategory } from "../../../contexts/CategoryContext";
 import { useNotifications } from "../../../contexts/NotificationContext";
@@ -56,7 +55,6 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const { user } = useUser();
 
-  const currentPath = window.location.pathname;
   const { unreadCount } = useNotifications();
   const { setSearchQuery } = useCategory();
 
